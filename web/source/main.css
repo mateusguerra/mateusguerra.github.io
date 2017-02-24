@@ -130,7 +130,6 @@ a {
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
 
-
     h1 {
         font-size: 120px;
         padding-top: 0.3em;
