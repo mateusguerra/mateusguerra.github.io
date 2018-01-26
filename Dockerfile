@@ -1,4 +1,14 @@
-FROM python:2.7.14
+# A basic apache server. To use either add or bind mount content under /var/www
+FROM ubuntu:12.04
 
-RUN mkdir mateusguerra
-RUN git clone git@bitbucket.org:mateusguerra/mateusguerra.com.git mateusguerra/
+MAINTAINER Kimbro Staken version: 0.1
+
+RUN apt-get update && apt-get install -y apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+
+EXPOSE 80
+
+CMD ["/", "-D", "FOREGROUND"]
