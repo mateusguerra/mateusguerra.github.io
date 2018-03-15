@@ -1,7 +1,9 @@
 FROM python:2.7
 
+WORKDIR /tmp
+
 # Add sample application
-ADD application.py /tmp/application.py
+ADD . .
 
 EXPOSE 8000
 
