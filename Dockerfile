@@ -1,14 +1,9 @@
-# A basic apache server. To use either add or bind mount content under /var/www
-FROM ubuntu:12.04
+FROM python:3.6
 
-MAINTAINER Kimbro Staken version: 0.1
+# Add sample application
+ADD application.py /tmp/application.py
 
-RUN apt-get update && apt-get install -y apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
+EXPOSE 8000
 
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
-
-EXPOSE 80
-
-CMD ["/", "-D", "FOREGROUND"]
+# Run it
+ENTRYPOINT ["python", "/tmp/application.py"]
