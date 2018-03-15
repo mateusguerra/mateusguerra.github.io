@@ -23,7 +23,7 @@ handler.setFormatter(formatter)
 # add Handler to Logger
 logger.addHandler(handler)
 
-message = codecs.open("/index.html", 'r')
+message = open("index.html", 'r').read()
  
 def application(environ, start_response):
     path    = environ['PATH_INFO']
